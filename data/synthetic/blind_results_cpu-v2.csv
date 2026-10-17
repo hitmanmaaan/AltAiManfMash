@@ -1,0 +1,46 @@
+file,truth,truth_sev,pred,pred_sev,type_ok,sev_ok,segments
+syn_01.csv,наружное кольцо,средняя,наружное кольцо,средняя,True,True,oute norm oute oute norm oute
+syn_02.csv,наружное кольцо,средняя,наружное кольцо,слабая,True,False,oute oute oute oute oute oute
+syn_03.csv,дисбаланс,слабая,норма,—,False,False,norm unba unba norm unba norm
+syn_04.csv,расцентровка,сильная,расцентровка,сильная,True,True,misa ?? misa misa misa misa
+syn_05.csv,наружное кольцо,слабая,норма,—,False,False,norm norm norm norm norm norm
+syn_06.csv,дисбаланс,сильная,дисбаланс,сильная,True,True,unba unba unba unba unba unba
+syn_07.csv,внутреннее кольцо,сильная,внутреннее кольцо,средняя,True,False,inne inne inne inne inne inne
+syn_08.csv,норма,—,норма,—,True,True,norm norm norm norm norm norm
+syn_09.csv,дисбаланс,слабая,дисбаланс,слабая,True,True,unba unba unba unba unba unba
+syn_10.csv,сепаратор,средняя,сепаратор,средняя,True,True,cage cage cage cage cage cage
+syn_11.csv,внутреннее кольцо,слабая,норма,—,False,False,norm norm norm norm norm misa
+syn_12.csv,норма,—,норма,—,True,True,norm norm misa norm norm norm
+syn_13.csv,тела качения,сильная,тела качения,сильная,True,True,ball ball ?? ball ball ball
+syn_14.csv,дисбаланс,средняя,дисбаланс,средняя,True,True,unba unba unba unba unba unba
+syn_15.csv,норма,—,норма,—,True,True,norm norm norm norm norm norm
+syn_16.csv,норма,—,норма,—,True,True,norm norm norm norm norm norm
+syn_17.csv,дисбаланс,средняя,дисбаланс,средняя,True,True,unba unba unba unba unba unba
+syn_18.csv,наружное кольцо,слабая,норма,—,False,False,norm norm norm norm oute norm
+syn_19.csv,сепаратор,сильная,сепаратор,сильная,True,True,cage cage cage cage cage cage
+syn_20.csv,норма,—,норма,—,True,True,norm norm norm norm norm norm
+syn_21.csv,расцентровка,сильная,расцентровка,сильная,True,True,misa misa misa misa ?? misa
+syn_22.csv,тела качения,слабая,норма,—,False,False,norm norm norm misa norm norm
+syn_23.csv,расцентровка,слабая,расцентровка,средняя,True,False,misa misa norm norm misa cage
+syn_24.csv,норма,—,норма,—,True,True,norm norm cage norm norm norm
+syn_25.csv,норма,—,норма,—,True,True,norm norm norm norm norm norm
+syn_26.csv,сепаратор,слабая,норма,—,False,False,norm norm norm norm cage cage
+syn_27.csv,тела качения,средняя,тела качения,средняя,True,True,ball ball ball ball ball ball
+syn_28.csv,внутреннее кольцо,сильная,внутреннее кольцо,сильная,True,True,inne inne inne inne inne inne
+syn_29.csv,сепаратор,средняя,сепаратор,средняя,True,True,cage cage cage cage cage cage
+syn_30.csv,внутреннее кольцо,средняя,внутреннее кольцо,слабая,True,False,inne inne inne inne inne inne
+syn_31.csv,внутреннее кольцо,средняя,норма,—,False,False,norm norm norm inne norm norm
+syn_32.csv,тела качения,слабая,норма,—,False,False,norm ball norm norm ball norm
+syn_33.csv,наружное кольцо,сильная,наружное кольцо,сильная,True,True,oute oute oute oute oute oute
+syn_34.csv,внутреннее кольцо,слабая,норма,—,False,False,norm norm norm norm norm norm
+syn_35.csv,наружное кольцо,сильная,наружное кольцо,средняя,True,False,oute oute oute oute oute oute
+syn_36.csv,тела качения,средняя,тела качения,слабая,True,False,ball ball ball ball norm ball
+syn_37.csv,расцентровка,средняя,расцентровка,средняя,True,True,misa misa misa misa misa misa
+syn_38.csv,сепаратор,слабая,норма,—,False,False,misa norm norm norm cage norm
+syn_39.csv,норма,—,норма,—,True,True,norm norm norm norm norm norm
+syn_40.csv,тела качения,сильная,тела качения,сильная,True,True,ball ball ball ball ball ball
+syn_41.csv,сепаратор,сильная,сепаратор,сильная,True,True,cage cage cage cage cage cage
+syn_42.csv,дисбаланс,сильная,дисбаланс,сильная,True,True,unba unba unba unba unba unba
+syn_43.csv,расцентровка,слабая,норма,—,False,False,misa norm norm norm norm norm
+syn_44.csv,норма,—,норма,—,True,True,norm norm norm norm norm norm
+syn_45.csv,расцентровка,средняя,расцентровка,средняя,True,True,misa misa misa misa misa misa

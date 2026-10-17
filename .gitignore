@@ -1,0 +1,49 @@
+# --- Система / редакторы
+.DS_Store
+~$*
+*.asv
+.vscode/
+.idea/
+
+# --- Python / Node
+.venv/
+venv/
+__pycache__/
+*.pyc
+node_modules/
+package-lock.json
+
+# --- Логи прогонов
+*.log
+
+# --- Документы и чужие материалы — в репозиторий не кладём
+*.docx
+*.pdf
+*.pptx
+/Лара/
+
+# --- Данные (~10 ГБ): см. data/README.md
+/data/*
+!/data/README.md
+!/data/synthetic/
+/data/synthetic/*
+!/data/synthetic/labels.csv
+!/data/synthetic/blind_results_*.csv
+
+# --- Кэш MATLAB-демо
+/matlab_demo/cache/
+
+# --- KNP: клоны, сборки и пакеты создаёт knp-lab/setup_docker.sh
+/knp-lab/repo/
+/knp-lab/repo-v1/
+/knp-lab/pkgs/
+/knp-lab/pkgs-v1/
+/knp-lab/newlibstdcpp/
+/knp-lab/inspect/
+
+# --- Файлы обмена с контейнерами (перезаписываются при каждом запуске); t1_* — вход теста секции 11 MATLAB
+/knp-lab/chip_io/*
+!/knp-lab/chip_io/t1_w.csv
+!/knp-lab/chip_io/t1_in.csv
+/knp-lab/matlab_bridge/*_spikes.csv
+/knp-lab/matlab_bridge/*.png

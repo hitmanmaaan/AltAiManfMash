@@ -1,0 +1,31 @@
+diff --git a/examples/CMakeLists.txt b/examples/CMakeLists.txt
+index 4cd4d59..95b2695 100644
+--- a/examples/CMakeLists.txt
++++ b/examples/CMakeLists.txt
+@@ -23,6 +23,9 @@ set(CMAKE_CXX_STANDARD 17)
+ 
+ add_subdirectory(save-load-networks)
+ add_subdirectory(simple-network)
++add_subdirectory(altai-simple-network)
++add_subdirectory(matlab-bridge)
++add_subdirectory(altai-fault-classifier)
+ add_subdirectory(mnist-client)
+ add_subdirectory(mnist-learn)
+ 
+diff --git a/knp/neuron-traits-library/include/knp/neuron-traits/stdp_type_traits.h b/knp/neuron-traits-library/include/knp/neuron-traits/stdp_type_traits.h
+index 6abca97..3ae9696 100644
+--- a/knp/neuron-traits-library/include/knp/neuron-traits/stdp_type_traits.h
++++ b/knp/neuron-traits-library/include/knp/neuron-traits/stdp_type_traits.h
+@@ -31,4 +31,12 @@ namespace knp::neuron_traits
+  */
+ using SynapticResourceSTDPBLIFATNeuron = SynapticResourceSTDPNeuron<BLIFATNeuron>;
+ 
++/**
++ * @brief AltAILIF neuron with additional resource-based STDP parameters.
++ * @details Declared here (absent from the v2.0.0 release tag) because the
++ * AltAI backend header (knp-altai-backend-dev package) already references
++ * this alias; it follows the exact same pattern as the BLIFAT alias above.
++ */
++using SynapticResourceSTDPAltAILIFNeuron = SynapticResourceSTDPNeuron<AltAILIF>;
++
+ }  // namespace knp::neuron_traits

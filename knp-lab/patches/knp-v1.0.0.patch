@@ -1,0 +1,76 @@
+diff --git a/cmake/knp-functions.cmake b/cmake/knp-functions.cmake
+index 50406dc..cf852c1 100644
+--- a/cmake/knp-functions.cmake
++++ b/cmake/knp-functions.cmake
+@@ -64,9 +64,7 @@ function(knp_set_target_parameters target visibility)
+ 
+     target_compile_features("${target}" ${pub_visibility} cxx_std_17)
+ 
+-    target_compile_definitions("${target}" ${visibility}
+-            #                                $<$<CONFIG:Debug>:_FORTIFY_SOURCE=2>
+-            $<$<CONFIG:Release>:_FORTIFY_SOURCE=1>)
++    # _FORTIFY_SOURCE is already predefined by Ubuntu's GCC; redefining it breaks -Werror builds.
+ 
+     target_compile_definitions("${target}" ${visibility} $<$<COMPILE_LANG_AND_ID:C,MSVC>:NOMINMAX>)
+     target_compile_definitions("${target}" ${visibility} $<$<COMPILE_LANG_AND_ID:CXX,MSVC>:NOMINMAX>)
+diff --git a/cmake/version.cmake b/cmake/version.cmake
+index d3be010..a0b6fe3 100644
+--- a/cmake/version.cmake
++++ b/cmake/version.cmake
+@@ -46,7 +46,7 @@ function(determine_version_with_git)
+         return()
+     endif()
+ 
+-    string(FIND ${VERSION} "." VALID_VERSION)
++    string(FIND "${VERSION}" "." VALID_VERSION)
+     if(VALID_VERSION EQUAL -1)
+         message(WARNING "Version string ${VERSION} retrieved with `git describe` is invalid.")
+         return()
+diff --git a/examples/CMakeLists.txt b/examples/CMakeLists.txt
+index d18ea99..338ba21 100644
+--- a/examples/CMakeLists.txt
++++ b/examples/CMakeLists.txt
+@@ -23,6 +23,7 @@ set(CMAKE_CXX_STANDARD 17)
+ 
+ add_subdirectory(save-load-networks)
+ add_subdirectory(simple-network)
++add_subdirectory(altai-fault-classifier)
+ add_subdirectory(mnist-client)
+ 
+ if (KNP_INSTALL)
+diff --git a/knp/core-library/impl/backend.cpp b/knp/core-library/impl/backend.cpp
+index 7a1d365..2c517ef 100644
+--- a/knp/core-library/impl/backend.cpp
++++ b/knp/core-library/impl/backend.cpp
+@@ -177,4 +177,12 @@ void Backend::select_devices(const std::set<UID>& uids)
+     }
+ }
+ 
++
++void Backend::select_device(std::unique_ptr<Device>&& device)
++{
++    devices_.clear();
++    devices_.push_back(std::move(device));
++    SPDLOG_INFO("Device with UID {} was selected.", std::string(devices_[0]->get_uid()));
++}
++
+ }  // namespace knp::core
+diff --git a/knp/core-library/include/knp/core/backend.h b/knp/core-library/include/knp/core/backend.h
+index fc35040..bf3c4fb 100644
+--- a/knp/core-library/include/knp/core/backend.h
++++ b/knp/core-library/include/knp/core/backend.h
+@@ -170,6 +170,14 @@ public:
+      */
+     virtual void select_devices(const std::set<UID> &uids);
+ 
++    /**
++     * @brief Select a device object on which to run the backend.
++     * @details Backported from KNP v2: the knp-altai-backend 1.0.0 binary package is built against a core
++     * that has this virtual right after select_devices(); without it the vtables are shifted by one slot.
++     * @param device device to use.
++     */
++    virtual void select_device(std::unique_ptr<Device> &&device);
++
+ public:
+     /**
+      * @brief Subscribe internal endpoint to messages.
